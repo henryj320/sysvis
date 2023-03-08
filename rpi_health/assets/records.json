@@ -1,0 +1,189 @@
+{
+    "data": [
+        {
+            "datetime": "2023-03-08 22:38:37.113266",
+            "success": true,
+            "temp": "32.9",
+            "cpu_percent": "3.7",
+            "memory_percent": "26.8",
+            "memory_total": "18.7",
+            "memory_used": "4.5",
+            "uptime": "1 day, 14:03:42.113266"
+        },
+        {
+            "datetime": [
+                "2023",
+                "03",
+                "08",
+                "22",
+                "53",
+                "20"
+            ],
+            "success": true,
+            "temp": "32.9",
+            "cpu_percent": "10.7",
+            "memory_percent": "26.9",
+            "memory_total": "18.7",
+            "memory_used": "4.5",
+            "uptime": "1 day, 14:18:25.435976"
+        },
+        {
+            "datetime": [
+                "2023",
+                "03",
+                "08",
+                "22",
+                "56",
+                "45"
+            ],
+            "success": true,
+            "temp": "33.9",
+            "cpu_percent": "3.8",
+            "memory_percent": "29.0",
+            "memory_total": "18.7",
+            "memory_used": "4.8",
+            "uptime": "1 day, 14:21:50.270305"
+        },
+        {
+            "datetime": [
+                "2023",
+                "03",
+                "08",
+                "22",
+                "57",
+                "13"
+            ],
+            "success": true,
+            "temp": "33.9",
+            "cpu_percent": "2.3",
+            "memory_percent": "28.7",
+            "memory_total": "18.7",
+            "memory_used": "4.8",
+            "uptime": "1 day, 14:22:18.323433"
+        },
+        {
+            "datetime": [
+                "2023",
+                "03",
+                "08",
+                "23",
+                "00",
+                "25"
+            ],
+            "success": true,
+            "temp": "33.9",
+            "cpu_percent": "2.7",
+            "memory_percent": "28.4",
+            "memory_total": "18.7",
+            "memory_used": "4.8",
+            "uptime": "1 day, 14:25:30.608466"
+        },
+        {
+            "datetime": [
+                "2023",
+                "03",
+                "08",
+                "23",
+                "00",
+                "32"
+            ],
+            "success": true,
+            "temp": "33.9",
+            "cpu_percent": "5.3",
+            "memory_percent": "28.3",
+            "memory_total": "18.7",
+            "memory_used": "4.7",
+            "uptime": "1 day, 14:25:36.578531"
+        },
+        {
+            "datetime": [
+                "2023",
+                "03",
+                "08",
+                "23",
+                "00",
+                "42"
+            ],
+            "success": true,
+            "temp": "33.9",
+            "cpu_percent": "3.1",
+            "memory_percent": "28.4",
+            "memory_total": "18.7",
+            "memory_used": "4.8",
+            "uptime": "1 day, 19:59:07.863445"
+        },
+        {
+            "datetime": [
+                "2023",
+                "03",
+                "08",
+                "23",
+                "00",
+                "56"
+            ],
+            "success": true,
+            "temp": "33.9",
+            "cpu_percent": "1.9",
+            "memory_percent": "28.4",
+            "memory_total": "18.7",
+            "memory_used": "4.8",
+            "uptime": "233 days, 6:32:41.139619"
+        },
+        {
+            "datetime": [
+                "2023",
+                "03",
+                "08",
+                "23",
+                "01",
+                "03"
+            ],
+            "success": true,
+            "temp": "33.9",
+            "cpu_percent": "2.2",
+            "memory_percent": "28.4",
+            "memory_total": "18.7",
+            "memory_used": "4.8",
+            "uptime": "1390 days, 16:19:28.533798"
+        },
+        {
+            "datetime": [
+                "2023",
+                "03",
+                "08",
+                "23",
+                "01",
+                "43"
+            ],
+            "success": true,
+            "temp": "33.9",
+            "cpu_percent": "3.9",
+            "memory_percent": "28.5",
+            "memory_total": "18.7",
+            "memory_used": "4.8",
+            "uptime": "1 day, 14:26:48.687716"
+        },
+        {
+            "datetime": [
+                "2023",
+                "03",
+                "08",
+                "23",
+                "08",
+                "09"
+            ],
+            "success": true,
+            "temp": "33.9",
+            "cpu_percent": "4.9",
+            "memory_percent": "28.3",
+            "memory_total": "18.7",
+            "memory_used": "4.8",
+            "uptime": [
+                "1",
+                "14",
+                "33",
+                "14"
+            ]
+        }
+    ]
+}

@@ -31,3 +31,18 @@ Last update: 2023/03/04 21:24
     - https://pypi.org/project/psutil/
         - Looks like that answers everything for me!
 7. Writing a function to grab the values from psutil.
+8. Changing it to update a JSON file instead
+    - Added a records.json file
+    - Made an updateJSON() function to update the file.
+    - Changed to json.dumps (instead of json.dump) so that it converts bools properly
+9. Adding a check to make sure the size will never be too large.
+    - 500 entries in records.json is 157KB, so not much of a concern.
+    - 1,000 is 314KB
+10. Converted datetime and uptime into arrays.
+11. Need to look into auto-running scripts. Maybe with "cron"
+    - https://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses/#:~:text=Cron%20allows%20Linux%20and%20Unix,%2Ftmp%2F%20directories%20and%20more.
+    - ` crontab -e `
+        - Installed by default on Linux, but no scheduled events set up.
+    - @hourly /path/to/ntpdate
+        - To run it every hour
+        - @daily
