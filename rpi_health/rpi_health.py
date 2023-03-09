@@ -1,47 +1,43 @@
 """A module to return the major health details of a system."""
-# import click
-import psutil
 from datetime import datetime
-import sys
-
 import json
+import sys
+import psutil
+
 
 JSON_PATH = "rpi_health/assets/records.json"
 
-# @click.command()
-# @click.option("-s", "--sensor", help="Absolute location of the CPU temperature file.", default="rpi_health/Tests/example_cpu_temp")
 
 def run() -> dict:
-    """Main method of rpi_Health.
+    """Entry method of rpi_Health.
+
     Returns:
-        dict: A dict containing the uptime, CPU usage, temperature, memory used, etc.
+        dict: A dict containing the uptime, CPU usage,
+            temperature, memory used, etc.
     """
-    
     health = get_health()  # A dict containing the health characteristics.
 
-    updateJSON(JSON_PATH, health)
-
+    update_json(JSON_PATH, health)
 
     return health
 
 
 def get_health() -> dict:
-    """Returns a dict containing the main health characteristics of the system using the psutil library.
+    """Return a dict containing the main health characteristics of the system using the psutil library.  # pylint: disable=line-too-long.
+
     Returns:
         dict: A dict containing the health characteristics of the system.
     """
-
-
-    cpu_percent = psutil.cpu_percent(interval=1)  # The percentage of CPU in use.
+    cpu_percent = psutil.cpu_percent(interval=1)  # Percentage of CPU in use.
 
     mem = psutil.virtual_memory()
     memory_percent = mem.percent  # The percentage of memory in use.
-    memory_total = round((mem.total / 1000000000), 1)  # Total memory in the system in GB.
-    memory_used = round((mem.used / 1000000000), 1)  # Memory in use in the system in GB.
+    memory_total = round((mem.total / 1000000000), 1)  # Total memory in GB.
+    memory_used = round((mem.used / 1000000000), 1)  # Memory in use in GB.
 
-    temperature = psutil.sensors_temperatures()  # Returns a dict of all temperatures.
-    temp_keys = list(temperature.keys())[0]  # Returns the first key of all temperatures.
-    temp = temperature[temp_keys][0].current   # Sets temp to the current temperature of the first temperature reading.
+    temperature = psutil.sensors_temperatures()  # Dict of all temperatures.
+    temp_keys = list(temperature.keys())[0]  # First key of all temperatures.
+    temp = temperature[temp_keys][0].current   # Sets temp to first of the options.
     temp = round(temp, 1)
 
     boot_time = psutil.boot_time()  # Returns the time that the computer was booted up.
@@ -69,20 +65,19 @@ def get_health() -> dict:
     return health
 
 
-def updateJSON(JSON_PATH: str, health: dict) -> bool:
-    """Updates the JSON file with the new health metrics.
-    Args:
-        JSON_PATH (str): The path to the JSON file.
-        health (dict): The dict containing the system's health metrics.
+def update_json(json_path: str, health: dict) -> bool:
+    """Update the JSON file with the new health metrics.
 
+    Args:
+        json_path (str): The path to the JSON file.
+        health (dict): The dict containing the system's health metrics.
     Returns:
         bool: True if the update succeeded.
     """
-
     try:
-        f = open(JSON_PATH)
-        json_file = json.load(f)  # Converts the file into a JSON object.
-        f.close()
+        file = open(json_path, encoding='utf-8')  # pylint: disable=consider-using-with
+        json_file = json.load(file)  # Converts the file into a JSON object.
+        file.close()
 
         max_metrics = 1000
 
@@ -92,34 +87,34 @@ def updateJSON(JSON_PATH: str, health: dict) -> bool:
             fifo_oldest = json_file["data"].pop(0)  # Removes the oldest RPI Health entry.
 
             # Prints the removed metrics
-            print("\nOldest health metrics being deleted because number of metrics saved in " + str(JSON_PATH) + "is greater than " + str(max_metrics) + ":")
+            print("\nOldest health metrics being deleted because number of metrics saved in")
+            print(str(JSON_PATH) + "is greater than " + str(max_metrics) + ":")
             print(fifo_oldest)
             print()
 
         json_file["data"].append(health)  # Adds the latest metrics to the end of the file.
 
-        with open(JSON_PATH, "w") as f:
-            json.dump(json_file, f, indent=4)  # Converts the JSON object back into the file.
+        with open(JSON_PATH, "w", encoding='utf-8') as file:
+            json.dump(json_file, file, indent=4)  # Converts the JSON object back into the file.
 
         print("JSON file updated.\n")
-    
-    except FileExistsError as e:
+
+    except FileExistsError:
         print("Failed to update JSON file. Exiting...\n")
         sys.exit()
 
     return True
 
 
-def convert_datetime(datetime: str) -> list:
-    """Converts a stringified datetime into an array.
+def convert_datetime(input_datetime: str) -> list:
+    """Convert a stringified datetime into an array.
+
     Args:
         datetime (str): A datetime string in the format of '2023-03-08 22:38:37.113266'.
-
     Returns:
         list: An array containing each of the datetime fields separated.
     """
-
-    date_full = datetime.split(" ")
+    date_full = input_datetime.split(" ")
     time_fullstring = date_full[1]  # Contains HH:MM:SS.123456
     date_fullstring = date_full[0]  # Contains YYYY-MM-DD
 
@@ -129,9 +124,7 @@ def convert_datetime(datetime: str) -> list:
     months = date_split[1]
     days = date_split[2]
 
-
-
-    time_split = time_fullstring.split(".")[0] # Removes the nanoseconds.
+    time_split = time_fullstring.split(".")[0]  # Removes the nanoseconds.
     time_split = time_split.split(":")
 
     hours = time_split[0]
@@ -142,11 +135,13 @@ def convert_datetime(datetime: str) -> list:
 
 
 def convert_uptime(uptime: str) -> list:
-    # "1 day, 14:18:25.435976"
-    # Input is always x days, even at "1390 days, 16:19:28.533798"
+    """Convert the uptime string into an array.
 
-    print(uptime)
-
+    Args:
+        uptime (str): The uptime in a string of the format "1 day, 14:18:25.435976".
+    Returns:
+        list: An array of format [days, hours, minutes, seconds].
+    """
     days = uptime.split(" ")
     time = days[2]  # Contains HH:MM:SS.123456
     days = days[0]
@@ -156,10 +151,6 @@ def convert_uptime(uptime: str) -> list:
     hours = time_split[0]
     minutes = time_split[1]
     seconds = time_split[2]
-
-    print(days)
-
-
 
     return [days, hours, minutes, seconds]
 
