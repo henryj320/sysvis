@@ -2,9 +2,6 @@ name: rpi_health Action
 
 on: [push]
 
-workflow_dispatch:  # Allows you to run this workflow manually from the Actions tab.
-
-
 jobs:
 
   build:  # A job in the workflow called "build"
