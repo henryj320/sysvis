@@ -58,8 +58,8 @@ def get_health() -> dict:
     print("\nCPU Usage:        " + str(cpu_percent) + "%")
     print("Temperature:      " + str(temp) + "°c")
     print("Memory Usage:     " + str(memory_percent) + "%")
-    print("Used Memory:      " + str(memory_used) + "%")
-    print("Total Memory:     " + str(memory_total) + "%")
+    print("Used Memory:      " + str(memory_used) + " GB")
+    print("Total Memory:     " + str(memory_total) + " GB")
     print("Uptime:           " + str(uptime) + "\n")
 
     return health
