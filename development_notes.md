@@ -46,3 +46,13 @@ Last update: 2023/03/04 21:24
     - @hourly /path/to/ntpdate
         - To run it every hour
         - @daily
+12. Adding tox testing.
+    - ` python3 -m venv venv `
+    - ` . venv/bin/activate `
+    - ` pip install tox `
+    - ` tox --help `
+    - ` tox -q `
+        - Quickstart that added a ".tox" file.
+    - Created a *tox.ini* file and pasted some contents into it.
+    - Added linting to it.
+13. Adding a GitHub action to run a pipeline.
