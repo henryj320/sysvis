@@ -56,3 +56,4 @@ Last update: 2023/03/10 00:29
     - Created a *tox.ini* file and pasted some contents into it.
     - Added linting to it.
 13. Adding a GitHub action to run a pipeline.
+14. Finishing touches. Sprint 1 complete!
