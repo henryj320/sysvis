@@ -1,4 +1,4 @@
-name: rpi_health Action
+name: sysvis Action
 
 on:
   push:

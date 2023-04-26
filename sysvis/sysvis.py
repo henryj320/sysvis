@@ -5,11 +5,11 @@ import sys
 import psutil
 
 
-JSON_PATH = "rpi_health/assets/records.json"
+JSON_PATH = "sysvis/assets/records.json"
 
 
 def run() -> dict:
-    """Entry method of rpi_Health.
+    """Entry method of sysvis.
 
     Returns:
         dict: A dict containing the uptime, CPU usage,

@@ -1,9 +1,9 @@
-# rpi_health
+# sysvis
 
 Last update: 2023/03/10 00:29
 <br><br>
 
-## Development notes for rpi_health
+## Development notes for sysvis
 
 1. Created the Repo, core files and "sprint 1" board.
 2. Made the directories to match the format of my "Using click" documentation.
@@ -12,8 +12,8 @@ Last update: 2023/03/10 00:29
 3. Checking that it works with ` pip install -e . `.
     - I can run it with:
         - ` pip install -e . `
-        - ` from rpi_health import rpi_health ` - from package import module
-        - ` rpi_health.run ` will call the run() function.
+        - ` from sysvis import sysvis ` - from package import module
+        - ` sysvis.run ` will call the run() function.
 4. Looking where to get the live health from.
     - ` armbianmonitor ` - Only works on Armbian, not useful for linus
     - sys/devices/virtual/thermal/thermal_zone0/temp
@@ -57,3 +57,4 @@ Last update: 2023/03/10 00:29
     - Added linting to it.
 13. Adding a GitHub action to run a pipeline.
 14. Finishing touches. Sprint 1 complete!
+15. Renamed "rpi_health" to "sysvis".

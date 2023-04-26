@@ -1,11 +1,11 @@
 from setuptools import find_packages, setup
 
 setup (
-	   name="rpi_health",
+	   name="sysvis",
 	   version="0.0.1",
 	   packages=find_packages(),
 	   include_package_data=True,
-       py_modules=["rpi_health.py"],
+       py_modules=["sysvis.py"],
 	   install_requires=[
 		   'click',
            'psutil'
@@ -13,7 +13,7 @@ setup (
 	   ],
 	   entry_points={
 		   "console_scripts": [
-			   "rpi_health = rpi_health.rpi_health:run",
+			   "sysvis = sysvis.sysvis:run",
 		   ],
 	   },
 )
